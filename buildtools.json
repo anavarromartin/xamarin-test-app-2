@@ -41,8 +41,26 @@
   "environment": {
     "defaults": {},
     "configuration": {
-      "Debug": {}
+      "Debug": {},
+      "Test": {}
     }
   },
-  "debug": false
+  "debug": false,
+  "appSettings": {
+    "XamarinDemo2": [
+      {
+        "className": "Secrets",
+        "properties": [
+          {
+            "name": "fruit",
+            "type": "String"
+          },
+          {
+            "name": "openApiToken",
+            "type": "String"
+          }
+        ]
+      }
+    ]
+  }
 }

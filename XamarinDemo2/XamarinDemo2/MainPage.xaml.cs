@@ -10,9 +10,13 @@ namespace XamarinDemo2
 {
     public partial class MainPage : ContentPage
     {
+        public string Fruit { get; set; }
         public MainPage()
         {
+            Fruit = Helpers.Secrets.fruit;
             InitializeComponent();
+
+            BindingContext = App.GetViewModel<MainPageViewModel>();
         }
     }
 }

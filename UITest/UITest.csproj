@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+        <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+        <ProjectGuid>{7BF5E4A9-2DB7-4AD8-97BB-D41252B7B2A4}</ProjectGuid>
+        <OutputType>Library</OutputType>
+        <RootNamespace>UITest</RootNamespace>
+        <AssemblyName>UITest</AssemblyName>
+        <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+        <DebugSymbols>true</DebugSymbols>
+        <DebugType>full</DebugType>
+        <Optimize>false</Optimize>
+        <OutputPath>bin\Debug</OutputPath>
+        <DefineConstants>DEBUG;</DefineConstants>
+        <ErrorReport>prompt</ErrorReport>
+        <WarningLevel>4</WarningLevel>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+        <Optimize>true</Optimize>
+        <OutputPath>bin\Release</OutputPath>
+        <ErrorReport>prompt</ErrorReport>
+        <WarningLevel>4</WarningLevel>
+    </PropertyGroup>
+    <ItemGroup>
+        <Reference Include="System"/>
+    </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="Moq" Version="4.20.70" />
+        <PackageReference Include="NUnit" Version="2.6.4"/>
+        <PackageReference Include="Xamarin.UITest" Version="4.3.4" />
+    </ItemGroup>
+    <ItemGroup>
+        <Compile Include="AppTests.cs"/>
+        <Compile Include="AppInitializer.cs"/>
+        <Compile Include="Unit\MainPageViewModelTest.cs" />
+        <Compile Include="Unit\OpenAiWorkoutGeneratorServiceTest.cs" />
+    </ItemGroup>
+    <ItemGroup>
+      <ProjectReference Include="..\XamarinDemo2\XamarinDemo2\XamarinDemo2.csproj">
+        <Project>{803f3a09-c578-4bfe-9e19-0bdff0fad618}</Project>
+        <Name>XamarinDemo2</Name>
+      </ProjectReference>
+    </ItemGroup>
+    <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets"/>
+</Project>
