@@ -52,10 +52,6 @@
         "className": "Secrets",
         "properties": [
           {
-            "name": "fruit",
-            "type": "String"
-          },
-          {
             "name": "openApiToken",
             "type": "String"
           }
