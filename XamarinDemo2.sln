@@ -9,8 +9,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XamarinDemo2.iOS", "Xamarin
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XamarinDemo2", "XamarinDemo2\XamarinDemo2\XamarinDemo2.csproj", "{803F3A09-C578-4BFE-9E19-0BDFF0FAD618}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XamarinDemo2.UnitTests", "XamarinDemo2.UnitTests\XamarinDemo2.UnitTests.csproj", "{918587DA-2BDB-4326-B678-FB2AA019E91D}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UITest", "UITest\UITest.csproj", "{7BF5E4A9-2DB7-4AD8-97BB-D41252B7B2A4}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTest", "UnitTest\UnitTest.csproj", "{FE4CB63C-7D58-4923-8216-F3DB79095ACB}"
@@ -64,20 +62,6 @@ Global
 		{803F3A09-C578-4BFE-9E19-0BDFF0FAD618}.Release|iPhone.Build.0 = Release|Any CPU
 		{803F3A09-C578-4BFE-9E19-0BDFF0FAD618}.Test|Any CPU.ActiveCfg = Test|Any CPU
 		{803F3A09-C578-4BFE-9E19-0BDFF0FAD618}.Test|Any CPU.Build.0 = Test|Any CPU
-		{918587DA-2BDB-4326-B678-FB2AA019E91D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{918587DA-2BDB-4326-B678-FB2AA019E91D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{918587DA-2BDB-4326-B678-FB2AA019E91D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{918587DA-2BDB-4326-B678-FB2AA019E91D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{918587DA-2BDB-4326-B678-FB2AA019E91D}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
-		{918587DA-2BDB-4326-B678-FB2AA019E91D}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
-		{918587DA-2BDB-4326-B678-FB2AA019E91D}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
-		{918587DA-2BDB-4326-B678-FB2AA019E91D}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
-		{918587DA-2BDB-4326-B678-FB2AA019E91D}.Debug|iPhone.ActiveCfg = Debug|Any CPU
-		{918587DA-2BDB-4326-B678-FB2AA019E91D}.Debug|iPhone.Build.0 = Debug|Any CPU
-		{918587DA-2BDB-4326-B678-FB2AA019E91D}.Release|iPhone.ActiveCfg = Release|Any CPU
-		{918587DA-2BDB-4326-B678-FB2AA019E91D}.Release|iPhone.Build.0 = Release|Any CPU
-		{918587DA-2BDB-4326-B678-FB2AA019E91D}.Test|Any CPU.ActiveCfg = Debug|Any CPU
-		{918587DA-2BDB-4326-B678-FB2AA019E91D}.Test|Any CPU.Build.0 = Debug|Any CPU
 		{7BF5E4A9-2DB7-4AD8-97BB-D41252B7B2A4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{7BF5E4A9-2DB7-4AD8-97BB-D41252B7B2A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7BF5E4A9-2DB7-4AD8-97BB-D41252B7B2A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
