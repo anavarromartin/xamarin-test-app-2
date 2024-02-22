@@ -13,6 +13,7 @@ namespace UITest
                 case Platform.Android:
                     return ConfigureApp.Android
                         .ApkFile("../../../XamarinDemo2/XamarinDemo2.Android/bin/Release/com.companyname.xamarindemo2.apk")
+                        .EnableLocalScreenshots()
                         .StartApp();
                 case Platform.iOS:
                     return ConfigureApp.iOS

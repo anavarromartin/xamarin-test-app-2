@@ -21,6 +21,8 @@
     <IntermediateOutputPath>obj\Debug\netstandard2.0</IntermediateOutputPath>
   </PropertyGroup>
   <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="System.Security.Permissions" Version="8.0.0" />
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.2196" />
     <PackageReference Include="Xamarin.Essentials" Version="1.7.0" />
     <PackageReference Include="Mobile.BuildTools" Version="2.0.245" />
@@ -28,6 +30,5 @@
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.0" />
     <PackageReference Include="Refit" Version="7.0.0" />
     <PackageReference Include="Refit.HttpClientFactory" Version="7.0.0" />
-    <PackageReference Include="Refit.Newtonsoft.Json" Version="7.0.0" />
   </ItemGroup>
 </Project>

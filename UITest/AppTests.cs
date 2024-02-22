@@ -26,7 +26,7 @@ namespace UITest
         [Test]
         public void WelcomeTextIsDisplayed()
         {
-            AppResult[] results = app.WaitForElement(c => c.Marked("Start developing now"));
+            AppResult[] results = app.WaitForElement(c => c.Marked("Select the areas you want to focus on"));
             app.Screenshot("Welcome screen.");
             app.Tap(q => q.Marked("UpperBodyCheck"));
             app.Tap(q => q.Marked("CreateWorkout"));

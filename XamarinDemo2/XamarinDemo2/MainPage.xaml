@@ -6,7 +6,6 @@
              xmlns:local="clr-namespace:XamarinDemo2"
              xmlns:input="clr-namespace:Plugin.InputKit.Shared.Controls;assembly=Plugin.InputKit"
              x:DataType="local:MainPageViewModel">
-
     <StackLayout>
         <Frame BackgroundColor="#2196F3" Padding="24" CornerRadius="0">
             <Label Text="AI Workout Generator" HorizontalTextAlignment="Center" TextColor="White" FontSize="36" />
