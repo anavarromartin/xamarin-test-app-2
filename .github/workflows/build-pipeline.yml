@@ -28,4 +28,7 @@ jobs:
         run: cd UnitTest && dotnet test && cd ..
 
       - name: Build
-        run: cd XamarinDemo2/XamarinDemo2.Android && msbuild XamarinDemo2.Android.csproj /t:PackageForAndroid /p:Configuration=Debug
+        run: |
+          echo "msbuild version:"
+          msbuild --version
+          cd XamarinDemo2/XamarinDemo2.Android && msbuild XamarinDemo2.Android.csproj /t:PackageForAndroid /p:Configuration=Debug
