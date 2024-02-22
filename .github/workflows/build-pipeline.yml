@@ -7,6 +7,9 @@ jobs:
 
     runs-on: macos-latest
 
+    env:
+      openApiToken: ${{ secrets.OPENAITOKEN }}
+
     steps:
       - uses: actions/checkout@v4
       - name: Set default Xamarin SDK versions
