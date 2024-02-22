@@ -22,7 +22,7 @@ jobs:
         run: nuget restore XamarinDemo2.sln
       
       - name: Run Unit Tests
-        run: cd UnitTests && dotnet test && cd ..
+        run: cd UnitTest && dotnet test && cd ..
 
       - name: Build
         run: cd XamarinDemo2.Android && msbuild XamarinDemo2.Android.csproj /t:PackageForAndroid /p:Configuration=Debug
