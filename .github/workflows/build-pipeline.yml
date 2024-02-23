@@ -32,3 +32,13 @@ jobs:
           echo "msbuild version:"
           msbuild --version
           cd XamarinDemo2/XamarinDemo2.Android && msbuild XamarinDemo2.Android.csproj /t:PackageForAndroid /p:Configuration=Debug
+
+      - name: Upload artifact to App Center
+        uses: wzieba/AppCenter-Github-Action@v1
+        with:
+          appName: anavarromartin/AIWorkout
+          token: ${{secrets.APP_CENTER_TOKEN}}
+          group: Testers
+          file: bin/Debug/com.companyname.xamarindemo2.apk
+          notifyTesters: true
+          debug: true

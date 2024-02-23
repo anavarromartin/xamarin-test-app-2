@@ -36,12 +36,24 @@ to version 7, like it is done in this project.
   }
 }
 ```
-### Use the right NUnit and test adapter
+#### Use the right NUnit and test adapter
 If using NUnit3TestAdapter, make sure you use NUnit version 3, otherwise no tests will be found.
 ```xml
 <PackageReference Include="NUnit" Version="3.12.0" />
 <PackageReference Include="NUnit3TestAdapter" Version="4.5.0" />
 ```
+
+### Github Actions
+Mobile.BuildTools automatic versioning setting has to be turned off (or do something other than `PreferBuildNumber`),
+otherwise it will set an value higher than an integer as a version and the build with fail with an error similar to 
+this:
+```
+  /Users/runner/work/xamarin-test-app-2/xamarin-test-app-2/XamarinDemo2/XamarinDemo2.Android/obj/Release/android/AndroidManifest.xml : error XA0003: VersionCode 8024520372 is invalid. It must be an integer value. [/Users/runner/work/xamarin-test-app-2/xamarin-test-app-2/XamarinDemo2/XamarinDemo2.Android/XamarinDemo2.Android.csproj]
+```
+
+### App Center
+#### Unit Testing
+Use SDK version 6 in `globals.json`.
 
 ### Other
 Add MSBuildEnableWorkloadResolver=false in MSBuild properties in Toolset and Build in Rider settings. More details 
