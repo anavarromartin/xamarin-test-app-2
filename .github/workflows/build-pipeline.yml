@@ -31,4 +31,4 @@ jobs:
         run: |
           echo "msbuild version:"
           msbuild --version
-          cd XamarinDemo2/XamarinDemo2.Android && msbuild XamarinDemo2.Android.csproj /t:PackageForAndroid /p:Configuration=Debug
+          cd XamarinDemo2/XamarinDemo2.Android && msbuild XamarinDemo2.Android.csproj /t:PackageForAndroid /p:Configuration=Release
