@@ -31,13 +31,13 @@ jobs:
         run: |
           echo "msbuild version:"
           msbuild --version
-          cd XamarinDemo2/XamarinDemo2.Android && msbuild XamarinDemo2.Android.csproj /t:PackageForAndroid /p:Configuration=Debug
+          cd XamarinDemo2/XamarinDemo2.Android && msbuild XamarinDemo2.Android.csproj /t:PackageForAndroid /p:Configuration=Release
         
       - name: Archive production artifacts
         uses: actions/upload-artifact@v2
         with:
           name: app
-          path: XamarinDemo2/XamarinDemo2.Android/bin/Debug/com.companyname.xamarindemo2.apk
+          path: XamarinDemo2/XamarinDemo2.Android/bin/Release/com.companyname.xamarindemo2.apk
           
   upload:
     needs: build
