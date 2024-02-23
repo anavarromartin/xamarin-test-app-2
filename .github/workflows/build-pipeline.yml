@@ -1,6 +1,6 @@
 name: Build Xamarin.Android app
 
-on: [push]
+on: [ push ]
 
 jobs:
   build:
@@ -23,7 +23,7 @@ jobs:
 
       - name: Install dependencies
         run: nuget restore XamarinDemo2.sln
-      
+
       - name: Run Unit Tests
         run: cd UnitTest && dotnet test && cd ..
 
@@ -32,13 +32,30 @@ jobs:
           echo "msbuild version:"
           msbuild --version
           cd XamarinDemo2/XamarinDemo2.Android && msbuild XamarinDemo2.Android.csproj /t:PackageForAndroid /p:Configuration=Debug
-
+          
+      - name: Archive production artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: app
+          path: bin/Debug/com.companyname.xamarindemo2.apk
+          
+  upload:
+    needs: build
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Download a build artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: app
+  
       - name: Upload artifact to App Center
         uses: wzieba/AppCenter-Github-Action@v1
         with:
           appName: anavarromartin/AIWorkout
           token: ${{secrets.APP_CENTER_TOKEN}}
           group: Testers
-          file: bin/Debug/com.companyname.xamarindemo2.apk
+          file: com.companyname.xamarindemo2.apk
           notifyTesters: true
           debug: true
+          
