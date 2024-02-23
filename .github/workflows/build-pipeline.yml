@@ -37,7 +37,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: app
-          path: XamarinDemo2/XamarinDemo2.Android/bin/Release/com.companyname.xamarindemo2.apk
+          path: XamarinDemo2/XamarinDemo2.Android/bin/Release/com.companyname.xamarindemo2-Signed.apk
           
   upload:
     needs: build
@@ -55,7 +55,7 @@ jobs:
           appName: anavarromartin/AIWorkout
           token: ${{secrets.APP_CENTER_TOKEN}}
           group: Collaborators
-          file: com.companyname.xamarindemo2.apk
+          file: com.companyname.xamarindemo2-Signed.apk
           notifyTesters: true
           debug: true
           
