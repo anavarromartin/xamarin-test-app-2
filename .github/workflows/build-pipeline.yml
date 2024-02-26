@@ -36,6 +36,7 @@ jobs:
 
       - name: Build
         run: |
+          mv AIWorkoutKeystore XamarinDemo2/XamarinDemo2.Android/AIWorkoutKeystore
           cd XamarinDemo2/XamarinDemo2.Android && msbuild XamarinDemo2.Android.csproj /t:PackageForAndroid /t:SignAndroidPackage /p:Configuration=Release
         
       - name: Archive production artifacts
