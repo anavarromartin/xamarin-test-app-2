@@ -77,12 +77,16 @@ jobs:
           
       - name: Install dependencies
         run: nuget restore XamarinDemo2.sln
-        
-      - name: Build
-        run: |
-          cd XamarinDemo2/XamarinDemo2.iOS
-          msbuild XamarinDemo2.iOS.csproj /t:Build /p:BuildIpa=True /p:Platform=iPhone /p:Configuration=Release
-  
+
+      - uses: bradyjoslin/xamarinios-signedbuild-action@v1
+        name: Build iOS
+        with:
+          csproj_path: XamarinDemo2/XamarinDemo2.iOS/XamarinDemo2.iOS.csproj
+          mobileprovision: ${{ secrets.MOBILEPROVISION }}
+          cert_p12: ${{ secrets.CERT_P12 }}
+          p12_pass: ${{ secrets.P12_PASS }}
+          configuration: "Release"
+      
   upload-android:
     needs: build-android
     runs-on: ubuntu-latest
