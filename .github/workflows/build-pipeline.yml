@@ -58,4 +58,5 @@ jobs:
           file: com.companyname.xamarindemo2-Signed.apk
           notifyTesters: true
           debug: true
+          gitReleaseNotes: true
           
