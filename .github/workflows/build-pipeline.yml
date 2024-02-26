@@ -2,8 +2,10 @@ name: Build Xamarin.Android app
 
 on: [ push ]
 
-jobs:
+env:
+  openApiToken: ${{ secrets.OPENAITOKEN }}
   
+jobs:
   test:
     runs-on: macos-latest
     steps:
@@ -24,7 +26,6 @@ jobs:
     needs: test
     runs-on: macos-latest
     env:
-      openApiToken: ${{ secrets.OPENAITOKEN }}
       KEYSTORE_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD }}
 
     steps:
@@ -41,9 +42,6 @@ jobs:
       - name: Install dependencies
         run: nuget restore XamarinDemo2.sln
 
-      - name: Run Unit Tests
-        run: cd UnitTest && dotnet test && cd ..
-        
       - name: Decode keystore
         uses: timheuer/base64-to-file@v1
         with:
