@@ -31,13 +31,12 @@ jobs:
       - name: Decode keystore
         uses: timheuer/base64-to-file@v1
         with:
-          fileName: AIWorkoutKeystore
+          fileName: 'AIWorkoutKeystore'
+          fileDir: './XamarinDemo2/XamarinDemo2.Android'
           encodedString: ${{ secrets.KEYSTORE }}
 
       - name: Build
         run: |
-          ls -la
-          mv AIWorkoutKeystore XamarinDemo2/XamarinDemo2.Android/AIWorkoutKeystore
           cd XamarinDemo2/XamarinDemo2.Android && msbuild XamarinDemo2.Android.csproj /t:PackageForAndroid /t:SignAndroidPackage /p:Configuration=Release
         
       - name: Archive production artifacts
