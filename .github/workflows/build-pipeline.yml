@@ -3,10 +3,26 @@ name: Build Xamarin.Android app
 on: [ push ]
 
 jobs:
-  build:
-
+  
+  test:
     runs-on: macos-latest
-
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set default Xamarin SDK versions
+        run: |
+          $VM_ASSETS/select-xamarin-sdk-v2.sh --mono=6.12 --android=13.0
+      - name: Setup .NET Core SDK 7.0.x
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: '7.0.x'
+      - name: Install dependencies
+        run: nuget restore XamarinDemo2.sln
+      - name: Run Unit Tests
+        run: cd UnitTest && dotnet test && cd ..
+  
+  build-android:
+    needs: test
+    runs-on: macos-latest
     env:
       openApiToken: ${{ secrets.OPENAITOKEN }}
       KEYSTORE_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD }}
@@ -44,9 +60,32 @@ jobs:
         with:
           name: app
           path: XamarinDemo2/XamarinDemo2.Android/bin/Release/com.companyname.xamarindemo2-Signed.apk
+  
+  build-ios:
+    needs: test
+    runs-on: macos-latest
+    
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set default Xamarin SDK versions
+        run: |
+          $VM_ASSETS/select-xamarin-sdk-v2.sh --mono=6.12 --ios=13.0
           
-  upload:
-    needs: build
+      - name: Setup .NET Core SDK 7.0.x
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: '7.0.x'
+          
+      - name: Install dependencies
+        run: nuget restore XamarinDemo2.sln
+        
+      - name: Build
+        run: |
+          cd XamarinDemo2/XamarinDemo2.iOS
+          msbuild XamarinDemo2.iOS.csproj /t:Build /p:BuildIpa=True /p:Platform=iPhone /p:Configuration=Release
+  
+  upload-android:
+    needs: build-android
     runs-on: ubuntu-latest
     
     steps:
