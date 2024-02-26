@@ -55,6 +55,20 @@ this:
 #### Unit Testing
 Use SDK version 6 in `globals.json`.
 
+### Android builds
+Add the following to the android `.csproj` in order to sign the builds and embed the assemblies into the APK for it 
+to work on a real device:
+```xml
+
+<EmbedAssembliesIntoApk>true</EmbedAssembliesIntoApk>
+<AndroidSupportedAbis>armeabi-v7a;x86;arm64-v8a;x86_64</AndroidSupportedAbis>
+<AndroidKeyStore>true</AndroidKeyStore>
+<AndroidSigningKeyStore>AIWorkoutKeystore</AndroidSigningKeyStore>
+<AndroidSigningStorePass>password123</AndroidSigningStorePass>
+<AndroidSigningKeyAlias>signing_key</AndroidSigningKeyAlias>
+<AndroidSigningKeyPass>password123</AndroidSigningKeyPass>
+```
+
 ### Other
 Add MSBuildEnableWorkloadResolver=false in MSBuild properties in Toolset and Build in Rider settings. More details 
 [here](https://youtrack.jetbrains.com/issue/RIDER-97292/The-SDK-Microsoft.NET.SDK.
