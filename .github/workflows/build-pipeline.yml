@@ -1,4 +1,4 @@
-name: Build Xamarin.Android app
+name: Build Xamarin App
 
 on: [ push ]
 
@@ -77,9 +77,6 @@ jobs:
 #          
 #      - name: Install dependencies
 #        run: nuget restore XamarinDemo2.sln
-      
-      - name: List files
-        run: ls -la
 
       - uses: bradyjoslin/xamarinios-signedbuild-action@v1
         name: Build iOS
