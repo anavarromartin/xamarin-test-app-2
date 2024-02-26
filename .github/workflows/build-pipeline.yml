@@ -78,13 +78,13 @@ jobs:
 #      - name: Install dependencies
 #        run: nuget restore XamarinDemo2.sln
       
-      - name: Go to iOS directory
-        run: cd XamarinDemo2/XamarinDemo2.iOS
+      - name: List files
+        run: ls -la
 
       - uses: bradyjoslin/xamarinios-signedbuild-action@v1
         name: Build iOS
         with:
-          csproj_path: XamarinDemo2.iOS.csproj
+          csproj_path: ./XamarinDemo2/XamarinDemo2.iOS/XamarinDemo2.iOS.csproj
           mobileprovision: ${{ secrets.MOBILEPROVISION }}
           cert_p12: ${{ secrets.CERT_P12 }}
           p12_pass: ${{ secrets.P12_PASS }}
