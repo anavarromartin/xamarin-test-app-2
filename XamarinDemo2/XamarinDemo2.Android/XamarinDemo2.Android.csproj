@@ -35,9 +35,9 @@
     <AndroidSupportedAbis>armeabi-v7a;x86;arm64-v8a;x86_64</AndroidSupportedAbis>
     <AndroidKeyStore>true</AndroidKeyStore>
     <AndroidSigningKeyStore>AIWorkoutKeystore</AndroidSigningKeyStore>
-    <AndroidSigningStorePass>password123</AndroidSigningStorePass>
+    <AndroidSigningStorePass>$(KEYSTORE_PASSWORD)</AndroidSigningStorePass>
     <AndroidSigningKeyAlias>signing_key</AndroidSigningKeyAlias>
-    <AndroidSigningKeyPass>password123</AndroidSigningKeyPass>
+    <AndroidSigningKeyPass>$(KEYSTORE_PASSWORD)</AndroidSigningKeyPass>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>

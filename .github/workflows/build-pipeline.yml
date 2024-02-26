@@ -9,6 +9,7 @@ jobs:
 
     env:
       openApiToken: ${{ secrets.OPENAITOKEN }}
+      KEYSTORE_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD }}
 
     steps:
       - uses: actions/checkout@v4
@@ -29,15 +30,13 @@ jobs:
 
       - name: Build
         run: |
-          echo "msbuild version:"
-          msbuild --version
-          cd XamarinDemo2/XamarinDemo2.Android && msbuild XamarinDemo2.Android.csproj /t:PackageForAndroid /t:SignAndroidPackage /p:Configuration=Debug
+          cd XamarinDemo2/XamarinDemo2.Android && msbuild XamarinDemo2.Android.csproj /t:PackageForAndroid /t:SignAndroidPackage /p:Configuration=Release
         
       - name: Archive production artifacts
         uses: actions/upload-artifact@v2
         with:
           name: app
-          path: XamarinDemo2/XamarinDemo2.Android/bin/Debug/com.companyname.xamarindemo2-Signed.apk
+          path: XamarinDemo2/XamarinDemo2.Android/bin/Release/com.companyname.xamarindemo2-Signed.apk
           
   upload:
     needs: build
