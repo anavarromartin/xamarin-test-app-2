@@ -93,6 +93,9 @@ jobs:
           api-key-id: ${{ secrets.APPSTORE_KEY_ID }}
           api-private-key: ${{ secrets.APPSTORE_PRIVATE_KEY }}
 
+      - name: Restore NuGet packages
+        run: nuget restore
+
       - name: Build iOS
         run: |
           cd XamarinDemo2/XamarinDemo2.iOS
