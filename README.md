@@ -69,6 +69,16 @@ to work on a real device:
 <AndroidSigningKeyPass>password123</AndroidSigningKeyPass>
 ```
 
+### iOS builds
+Followed this [tutorial](https://prin53.medium.com/github-actions-xamarin-apps-231a65642631) to get it working by installing the P12 certificate and downloading the provisioning profile.
+
+Make sure you add the provisioning profile information in the `.csproj`, you might do so via Rider's properties or 
+environment variables:
+```xml
+<CodesignProvision>iOS Team Provisioning Profile: *</CodesignProvision>
+<CodesignKey>Apple Development: Adria Navarro Martin (2QPJC959C9)</CodesignKey>
+```
+
 ### Other
 Add MSBuildEnableWorkloadResolver=false in MSBuild properties in Toolset and Build in Rider settings. More details 
 [here](https://youtrack.jetbrains.com/issue/RIDER-97292/The-SDK-Microsoft.NET.SDK.
