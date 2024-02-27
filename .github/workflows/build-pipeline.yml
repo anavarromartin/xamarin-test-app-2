@@ -99,7 +99,13 @@ jobs:
       - name: Build iOS
         run: |
           cd XamarinDemo2/XamarinDemo2.iOS
-          msbuild /t:Build /p:Configuration=Release /p:Platform=iPhone /p:BuildIpa=true XamarinDemo2.iOS.csproj 
+          msbuild /t:Build /p:Configuration=Release /p:Platform=iPhone /p:BuildIpa=true XamarinDemo2.iOS.csproj
+          
+      - name: Archive production artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: app-ios
+          path: XamarinDemo2/XamarinDemo2.iOS/bin/iPhone/Release/XamarinDemo2.iOS.ipa
 
 #      - uses: bradyjoslin/xamarinios-signedbuild-action@v1
 #        name: Build iOS
@@ -130,6 +136,30 @@ jobs:
           token: ${{secrets.APP_CENTER_TOKEN}}
           group: Collaborators
           file: com.companyname.xamarindemo2-Signed.apk
+          notifyTesters: true
+          debug: true
+          gitReleaseNotes: true
+          
+  upload-ios:
+    needs: build-ios
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+        name: Check out repo
+
+      - name: Download a build artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: app-ios
+
+      - name: Upload artifact to App Center
+        uses: wzieba/AppCenter-Github-Action@v1
+        with:
+          appName: anavarromartin/AIWorkout-iOS
+          token: ${{secrets.APP_CENTER_TOKEN}}
+          group: Collaborators
+          file: XamarinDemo2.iOS.ipa
           notifyTesters: true
           debug: true
           gitReleaseNotes: true
